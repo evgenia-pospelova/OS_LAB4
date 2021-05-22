@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
         Sleep(1);
     }
 
-    cout << endl << "Labs id: " << GetCurrentProcessId << endl;
-    cout << "Labs parent id: " << GetProcessId << endl;
+    cout << endl << "Labs id: " << getpit() << endl;
+    cout << "Labs parent id: " << getppid() << endl;
     exit(31);
 }
