@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <unistd.h>
 #include <stdlib.h>
@@ -8,18 +7,20 @@
 
 using namespace std;
 
-int main(int argc, char* argv[], char *envp[])
+int main(int argc, char* argv[])
 {
-    int child_processId = fork();
+
     int status;
-    char *const arg[] = {(char*)"OS_LAB4_2",(char*) "arg1", (char*) "arg2", nullptr};
+    char *const arg[] = {(char*)"OS_LAB4_2",(char*) "arg1", (char*) "arg2", 0};
+
+    cout << "Идентификатор: " << getpid() << endl;
+    int child_processId = fork();
 
     if(child_processId == 0){
-        cout << "Labs child id: " << getpid() << endl;
-        execvpe("OS_LAB4_2",arg, envp);
+        cout << "Дочерний идентификатор: " << getpid() << endl;
+        cout << "Родительский идентификатор: " << getppid() << endl;
+        execvpe("OS_LAB4_2",arg, NULL);
     } else {
-        cout << endl << "Labs id: " << getpid() << endl;
-        cout << "Labs parent id: " << getppid() << endl;
 
         while(waitpid(child_processId,&status,WNOHANG) == 0){
             usleep(500000);
