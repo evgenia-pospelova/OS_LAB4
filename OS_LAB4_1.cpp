@@ -16,5 +16,5 @@ int main(int argc, char* argv[])
 
     cout << endl << "Labs id: " << getpid() << endl;
     cout << "Labs parent id: " << getppid() << endl;
-    exit(31);
+    return 0;
 }
