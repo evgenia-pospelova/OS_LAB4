@@ -11,7 +11,6 @@ int main(int argc, char* argv[])
 
     for (int count = 0; count < argc; count++){
         cout << count << ". " << argv[count] << '\n';
-        cout.flush();
         sleep(1);
     }
 
